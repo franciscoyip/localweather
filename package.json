@@ -1,0 +1,19 @@
+{
+  "name": "localweather",
+  "version": "1.0.0",
+  "description": "Single page to show weather based on user location",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://franciscoyip@github.com/franciscoyip/localweather.git"
+  },
+  "author": "Francisco Yip",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/franciscoyip/localweather/issues"
+  },
+  "homepage": "https://github.com/franciscoyip/localweather#readme"
+}
