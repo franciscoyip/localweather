@@ -5,3 +5,9 @@ body{
   position: relative;
   top: -20px;
 }
+.weather{
+  color: #ffffff;
+}
+.weather .timestamp{
+  color: #708090;
+}

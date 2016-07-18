@@ -47,6 +47,14 @@ $(document).ready(function(){
           var degree = localWeather['main']['temp'];
           degree = (displayUnit === 'F'? (degree * 9/5) - 457.87 : degree - 273.15).toFixed(2);
           elementCache['$degree'].html(degree+'&deg;' + displayUnit);
+          elementCache['$degreeControl'].each(function(i, el){
+            var $el = $(el);
+            if($el.val() === displayUnit){
+              $el.prop('checked', true);
+              return;
+            }
+          });
+
           var iconCode = localWeather.weather[0].icon;
           var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
 
@@ -68,8 +76,15 @@ $(document).ready(function(){
           $unit:$weather.find('.unit'),
           $icon:$weather.find('.icon'),
           $description:$weather.find('.description'),
-          $timestamp:$weather.find('.timestamp')
+          $timestamp:$weather.find('.timestamp'),
+          $degreeControl: $weather.find('.degree-control input[type=radio]')
         }
+        elementCache['$degreeControl'].on('click', degreeRadioOnclick);
+      }
+
+      function degreeRadioOnclick(){
+        displayUnit = elementCache['$degreeControl'].filter(':checked').get(0).value;
+        renderUI();
       }
 
       return {
