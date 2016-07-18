@@ -1,0 +1,7 @@
+body{
+  background-color: #87CEFA;
+}
+.weather .description{
+  position: relative;
+  top: -20px;
+}
