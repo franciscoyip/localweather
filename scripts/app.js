@@ -14,7 +14,6 @@ $(document).ready(function(){
           url: url,
           success: function(data){
             locationResponse = data;
-            console.log(data);
           }
         });
       }
@@ -23,7 +22,7 @@ $(document).ready(function(){
         var url = 'http://api.openweathermap.org/data/2.5/weather';
         var data = {
           //bad idea to embed API Key here
-          appid: ''
+          appid: 'fb36908083a2abc1d964a40f6a769a4a'
         };
         if(locationResponse !== null){
           data['q'] = [locationResponse['city'],locationResponse['region'],locationResponse['countryCode']].join(',');
@@ -32,11 +31,26 @@ $(document).ready(function(){
             data: data,
             success: function(data) {
               localWeather = data;
-              console.log(data);
             }
           });
         }
       };
+
+      //helper function to convert degree
+      function convertDegree(degree, metric){
+        switch(metric) {
+            case 'F':
+                degree = (degree * 9/5) - 457.87;
+                break;
+            case 'C':
+                degree = degree - 273.15;
+                break;
+            default:
+                return degree;
+                break;
+        }
+        return degree.toFixed(2);
+      }
 
       function renderUI(){
         if(locationResponse !== null){
@@ -45,7 +59,7 @@ $(document).ready(function(){
           }
           elementCache['$location'].html( locationResponse['city']+', '+locationResponse['region'] );
           var degree = localWeather['main']['temp'];
-          degree = (displayUnit === 'F'? (degree * 9/5) - 457.87 : degree - 273.15).toFixed(2);
+          degree = convertDegree(degree, displayUnit);
           elementCache['$degree'].html(degree+'&deg;' + displayUnit);
           elementCache['$degreeControl'].each(function(i, el){
             var $el = $(el);
