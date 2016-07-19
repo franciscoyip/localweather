@@ -60,7 +60,8 @@ $(document).ready(function(){
           elementCache['$location'].html( locationResponse['city']+', '+locationResponse['region'] );
           var degree = localWeather['main']['temp'];
           degree = convertDegree(degree, displayUnit);
-          elementCache['$degree'].html(degree+'&deg;' + displayUnit);
+          elementCache['$degree'].html(degree);
+          elementCache['$unit'].html('&deg;' + displayUnit);
           elementCache['$degreeControl'].each(function(i, el){
             var $el = $(el);
             if($el.val() === displayUnit){
