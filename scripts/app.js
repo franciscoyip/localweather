@@ -52,6 +52,16 @@ $(document).ready(function(){
         return degree.toFixed(2);
       }
 
+      function UTCtoDate(utc){
+        var ts = new Date(0);
+        ts.setUTCSeconds( parseInt( utc ) );
+        return ts;
+      }
+
+      function codeToIconURL(iconCode){
+        return "http://openweathermap.org/img/w/" + iconCode + ".png";
+      }
+
       function renderUI(){
         if(locationResponse !== null){
           if(elementCache === null){
@@ -70,16 +80,17 @@ $(document).ready(function(){
             }
           });
 
-          var iconCode = localWeather.weather[0].icon;
-          var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
+          var iconUrl = codeToIconURL(localWeather.weather[0].icon);
 
           elementCache['$icon'].empty().append( $('<img>').attr({
             'src':iconUrl
           }).css({width: '100px'}) );
           elementCache['$description'].html(localWeather['weather'][0]['main']);
-          var ts = new Date(0);
-          ts.setUTCSeconds( parseInt( localWeather['dt'] ) )
-          elementCache['$timestamp'].html('Last Updated on <br/>' + ts.toString('MMMM dS, yyyy HH:mm'));
+
+          var ts = UTCtoDate(localWeather['dt']);
+          elementCache['$timestamp'].html(ts.toString('MMMM dS, yyyy HH:mm'));
+
+          elementCache['$weather'].removeClass('default');
         }
       }
 
@@ -87,6 +98,7 @@ $(document).ready(function(){
         var $weather = $('.weather')
         elementCache = {
           $location:$('#location'),
+          $weather: $weather,
           $degree:$weather.find('.degree'),
           $unit:$weather.find('.unit'),
           $icon:$weather.find('.icon'),
