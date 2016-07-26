@@ -2,7 +2,7 @@
   "name": "localweather",
   "version": "1.0.0",
   "description": "Single page to show weather based on user location",
-  "main": "script.js",
+  "main": "scripts/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,5 +15,16 @@
   "bugs": {
     "url": "https://github.com/franciscoyip/localweather/issues"
   },
-  "homepage": "https://github.com/franciscoyip/localweather#readme"
+  "homepage": "https://github.com/franciscoyip/localweather#readme",
+  "devDependencies": {
+    "browser-sync": "^2.13.0",
+    "gulp-uglify": "^1.5.4",
+    "gulp-watch": "^4.3.8",
+    "jasmine": "^2.4.1",
+    "karma": "^1.1.2",
+    "karma-jasmine": "^1.0.2",
+    "karma-phantomjs-launcher": "^1.0.1",
+    "karma-safari-launcher": "^1.0.0",
+    "pump": "^1.0.1"
+  }
 }
