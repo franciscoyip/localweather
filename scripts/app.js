@@ -1,8 +1,11 @@
+/*global $ */
+/*eslint no-undef: "error"*/
+/*eslint-env browser*/
+
 $(document).ready(function(){
 
     var LocalWeather = function(){
-
-      var locationResponse = null;
+        var locationResponse = null;
       var localWeather = null;
       var displayUnit = 'F';
       var elementCache = null;
@@ -109,10 +112,10 @@ $(document).ready(function(){
         elementCache['$degreeControl'].on('click', degreeRadioOnclick);
       }
 
-      function degreeRadioOnclick(){
-        displayUnit = elementCache['$degreeControl'].filter(':checked').get(0).value;
-        renderUI();
-      }
+        function degreeRadioOnclick(){
+          displayUnit = elementCache["$degreeControl"].filter(":checked").get(0).value;
+          renderUI();
+        }
 
       return {
         getCurrentLocation: getCurrentLocation,

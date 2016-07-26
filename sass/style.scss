@@ -1,0 +1,19 @@
+body{
+  background-color: #87CEFA;
+}
+.weather {
+  color: #ffffff;
+  .description{
+    position: relative;
+    top: -20px;
+  }
+  .unit{
+    padding-left: 3px;
+  }
+  .text-grey{
+    color: #708090;
+  }
+}
+.weather.default{
+  display:none;
+}

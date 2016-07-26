@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Show Local Weather</title>
+    <link rel=icon href="favicon.png" sizes="16x16" type="image/png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css" charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" charset="utf-8">
+    <link rel="stylesheet" href="/css/style.css" media="screen" charset="utf-8">
+  </head>
+  <body>
+      <div class="fluid-container">
+          <div class="text-center">
+            <h1>Local Weather Great</h1>
+            <div id="app-container">
+              <h2><i class="fa fa-map-marker" aria-hidden="true"> <span id='location'></span></i>
+</h2>
+              <div class="weather default">
+                <h3><span class='degree'></span> <span class='unit'></span></h3>
+                <div class="degree-control">
+                  <label class="radio-inline">
+                    <input type="radio" name="inlineRadioOptions" value="F"> Fahrenheit
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="inlineRadioOptions" value="C"> Celsius
+                  </label>
+                </div>
+                <div class='icon'></div>
+                <h4 class="description"></h4>
+                <h4 class='text-grey'>Last Updated on<br/><span class='timestamp'></span></h4>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/datejs/1.0/date.min.js"></script>
+      <script type="text/javascript" src='scripts/app.js'></script>
+  </body>
+</html>
